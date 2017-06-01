@@ -171,10 +171,11 @@ CREATE TABLE `user` (
   `fullname` varchar(100) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `is_admin` tinyint(4) NOT NULL DEFAULT '0',
-  `vcard` varchar(100) DEFAULT NULL,
+  `is_active` tinyint(4) NOT NULL DEFAULT '0',
   `address` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `rut` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_UK` (`rut`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -184,7 +185,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,NULL,'perico@perico.cl','66f4cd4735a75985f73ddd7a4b4c24f983afd9b4',0,'111','qweqweqwe');
+INSERT INTO `user` VALUES (1,'prico los palotes','perico@perico.cl','66f4cd4735a75985f73ddd7a4b4c24f983afd9b4',1,'qweqweqwe','11111111-1');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
