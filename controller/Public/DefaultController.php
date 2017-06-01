@@ -1,15 +1,15 @@
 <?php
-namespace Controller\Shop;
+namespace Controller\Public;
 
 use Library\Controller;
 use Model\Entity\Product;
 
-class ProductController extends Controller {
+class DefaultController extends Controller {
     static $template ='Layout/base.html.php';
 
     function indexAction(){
         return [
-            'title'=>"La Tienda > Home",
+            'title'=>"Sistema de atencion médica > inicio",
             'products'=>(new Product)->getAllproducts(),
         ];
     }
@@ -27,7 +27,7 @@ class ProductController extends Controller {
 
     //agrera un producto al carro de compras
     function addCartAction(){
-        if(!$this->isXmlHttpRequest()) $this->redirect('/shop/product');
+        if(!$this->isXmlHttpRequest()) $this->redirect('/public');
 
         $product = $this->post('product');
         $id = (int)$product['id'];
@@ -52,34 +52,6 @@ class ProductController extends Controller {
             $_SESSION['cart'][$id]['quantity'] = $quantity;
         }
         echo json_encode(['message'=>'Carro actualizado con exito.']); exit;
-    }
-
-    //ver el carro de compras
-    function showCartAction(){
-        $cart = null;
-        if(!empty($_SESSION['cart']) ) {
-            $cart = $_SESSION['cart'];
-        }
-
-        return [
-            'title'=>"La Tienda > Carro de Compras",
-            'cart'=>$cart,
-        ];
-    }
-
-    //accion de hacer clic en el boton comprar
-    function buyAction(){
-        //si no esta registrado mostrar cuadro de registro
-        //le cuadro de registro debe ser AJAX
-        //mostrar los detalles de la compra y las opciones de pago
-        $logged = false;
-
-        return ['logged'=>$logged];
-    }
-
-    function clearCartAction(){
-        $_SESSION['cart'] = null;
-        $this->redirect('/shop/product/showCart');
     }
 
 }

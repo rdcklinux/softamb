@@ -1,5 +1,5 @@
 <?php
-namespace Controller\Admin;
+namespace Controller\Private;
 
 use Library\Controller;
 use Model\Entity\Order;
@@ -35,7 +35,7 @@ class OrderController extends Controller {
         return [
             'details'=>$details,
             'order'=>$id,
-                
+
         ];
     }
 
@@ -48,10 +48,10 @@ class OrderController extends Controller {
         // $success = (new Order)->update($order_id, $query);
 
         // ############### MEJORAR SEGURIDAD EVITANDO INJECCION SQL #######
-        $query = "update cash_order set status = $status where id = $order_id;";  
-        $success = (new Order)->customQuery($query); 
-  
-        echo json_encode(['success' => $success, 'status' => $status, 'query'=>$query]); exit;   
-        
+        $query = "update cash_order set status = $status where id = $order_id;";
+        $success = (new Order)->customQuery($query);
+
+        echo json_encode(['success' => $success, 'status' => $status, 'query'=>$query]); exit;
+
     }
 }

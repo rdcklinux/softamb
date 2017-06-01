@@ -1,5 +1,5 @@
 <?php
-namespace Controller\Admin;
+namespace Controller\Private;
 
 use Library\Controller;
 use Model\Company;
