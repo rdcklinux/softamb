@@ -13,5 +13,6 @@ class WelcomeController extends Controller {
         //muestra los botones o redirige a la opcion segun
         //el perfil.
         //define las opciones que debe mostrar la plataforma
+        return [];
     }
 }
