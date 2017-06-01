@@ -21,7 +21,7 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand pull-right	" href="/">LaTienda</a>
+              <a class="navbar-brand pull-right	" href="/">SOFTAMB</a>
               <a href="/">
               	<img style="height:50px" src="/images/logo3.png">
               </a>
@@ -29,7 +29,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-              <li><a href="/shop/product">Productos</a></li>
+              <li><a href="/frontend">Inicio</a></li>
                 <?php if(!empty($_SESSION['user'])): ?>
                     <li><a href="javascript:void(0);"><small><b><?=$_SESSION['user']["email"]?></b></small> </a></li>
                 	<?php if ($_SESSION['user']['is_admin'] == 1): ?>
@@ -43,14 +43,10 @@
                             <li><a href="/admin/product">Productos</a></li>
                           </ul>
                         </li>
-        	        <?php else: ?>
-        	        	<li><a href="/shop/product/showCart">Ver Carro</a></li>
                 	<?php endif ?>
-                	<li><a href="/shop/auth/logout">Cerrar Sesion</a></li>
+                	<li><a href="/frontend/auth/logout">Cerrar Sesion</a></li>
                 <?php else: ?>
-                	<li><a href="/shop/product/showCart">Ver Carro</a></li>
-        	        <li><a href="/shop/auth/signup">Registrarse</a></li>
-        	        <li><a href="/shop/auth/signin">Login</a></li>
+        	        <li><a href="/frontend/auth/signin">Login</a></li>
         	    <?php endif; ?>
               </ul>
             </div><!-- /.navbar-collapse -->

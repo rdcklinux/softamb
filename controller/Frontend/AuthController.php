@@ -1,5 +1,5 @@
 <?php
-namespace Controller\Public;
+namespace Controller\Frontend;
 
 use Library\Controller;
 use Model\Entity\User;
@@ -8,13 +8,12 @@ class AuthController extends Controller {
     static $template = 'Layout/base.html.php';
 
     function indexAction() {
-    	$this->redirect('/public/auth/signin');
+    	$this->redirect('/frontend/auth/signin');
     }
 
     function signinAction(){
       return [
           'title'=> "Ingreso de Usuarios",
-          'post'=> 'doSignin',
       ];
     }
 
@@ -28,26 +27,26 @@ class AuthController extends Controller {
             // User not found
             $_SESSION['message']='Usuario no registrado';
             unset($exists);
-            $this->redirect('/public/auth/signin');
+            $this->redirect('/frontend/auth/signin');
         }
         elseif ($exists['password'] !== sha1($pwd)) {
             // Invalid Password
             $_SESSION['message']='Password invalido!';
             unset($exists);
-            $this->redirect('/public/auth/signin');
+            $this->redirect('/frontend/auth/signin');
         }
         unset($exists['password']);
         $_SESSION['user'] = $exists;
-        $this->redirect('/private/welcome');
+        $this->redirect('/backend/welcome');
     }
 
     function logoutAction(){
       unset($_SESSION['user']);
-      $this->redirect('/public');
+      $this->redirect('/frontend');
     }
 
     private function userExists($rut){
-        return (new User)->select(['id','password','email', 'fullname', 'is_admin'], "rut='$rut'")->fetch();
+        return (new User)->select(['id','password','email', 'fullname', 'is_active'], "rut='$rut'")->fetch();
     }
 
 }

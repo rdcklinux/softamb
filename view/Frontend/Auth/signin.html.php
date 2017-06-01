@@ -6,28 +6,22 @@
           <p class="alert alert-danger"><?=$_SESSION['message']?></p>
           <?php unset($_SESSION['message'])?>
       <?php endif ?>
-      <form action="/shop/auth/<?=$post?>" method="POST">
-        <?php if(!$signin): ?>
+      <form action="/frontend/auth/dosignin" method="POST">
         <div class="form-group">
-          Nombre Completo <input type="text" required name="auth[name]" class="form-control"/>
-        </div>
-        <?php endif?>
-        <div class="form-group">
-          Email <input type="email" required class="form-control" name="auth[email]"/>
+          Rut <input type="text" required class="form-control" name="auth[rut]"/>
         </div>
         <div class="form-group">
           Contraseña <input type="password" required name="auth[password]" class="form-control"/>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <button type="submit" class="btn btn-success btn-block"><?=($signin)?'Ingresar':'Registrar Usuario'?></button>
+            <button type="submit" class="btn btn-success btn-block">Ingresar</button>
           </div>
           <div class="col-md-6">
-            <a class="btn btn-default btn-block" href="/shop/product">Volver</a>
+            <a class="btn btn-default btn-block" href="/frontend">Volver</a>
           </div>
         </div>
       </form>
     </div>
   </div>
-
 </div>

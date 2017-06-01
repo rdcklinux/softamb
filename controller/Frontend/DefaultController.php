@@ -1,5 +1,5 @@
 <?php
-namespace Controller\Public;
+namespace Controller\Frontend;
 
 use Library\Controller;
 use Model\Entity\Product;
@@ -27,7 +27,7 @@ class DefaultController extends Controller {
 
     //agrera un producto al carro de compras
     function addCartAction(){
-        if(!$this->isXmlHttpRequest()) $this->redirect('/public');
+        if(!$this->isXmlHttpRequest()) $this->redirect('/frontend');
 
         $product = $this->post('product');
         $id = (int)$product['id'];
