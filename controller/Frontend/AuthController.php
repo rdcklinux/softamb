@@ -25,13 +25,13 @@ class AuthController extends Controller {
 
         if (empty($exists) ) {
             // User not found
-            $_SESSION['message']='Usuario no registrado';
+            $_SESSION['message']='Usuario o password invalidos';
             unset($exists);
             $this->redirect('/frontend/auth/signin');
         }
         elseif ($exists['password'] !== sha1($pwd)) {
             // Invalid Password
-            $_SESSION['message']='Password invalido!';
+            $_SESSION['message']='Usuario o password invalidos';
             unset($exists);
             $this->redirect('/frontend/auth/signin');
         }
@@ -46,7 +46,7 @@ class AuthController extends Controller {
     }
 
     private function userExists($rut){
-        return (new User)->select(['id','password','email', 'nombre', 'apellido', 'activo'], "rut='$rut'")->fetch();
+        return (new User)->select('*', "rut='$rut' AND activo=1")->fetch();
     }
 
 }

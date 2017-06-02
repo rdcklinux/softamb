@@ -47,9 +47,9 @@ class Repository {
     $conn->exec($sql);
   }
 
-  public function select(array $fields, $where=NULL, $orderby=NULL, $having=NULL, $limit=NULL){
+  public function select($fields, $where=NULL, $orderby=NULL, $having=NULL, $limit=NULL){
     $conn = $this->database->getConnection();
-    $fields = '`'.implode('`,`', $fields).'`' ;
+    if($fields != '*') $fields = '`'.implode('`,`', $fields).'`' ;
     $sql = "SELECT $fields FROM $this->table";
     if($where !== NULL) $sql .= " WHERE $where";
     if($orderby !== NULL) $sql .= " ORDER BY $orderby";

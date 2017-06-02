@@ -29,24 +29,24 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-              <li><a href="/frontend">Inicio</a></li>
                 <?php if(!empty($_SESSION['user'])): ?>
-                    <li><a href="javascript:void(0);"><small><b><?=$_SESSION['user']["email"]?></b></small> </a></li>
-                	<?php if ($_SESSION['user']['is_admin'] == 1): ?>
+                    <li><a href="/backend/welcome">Inicio</a></li>
+                    <li><a href="javascript:void(0);"><small><b><?=$_SESSION['user']["nombre"] . ' ' . $_SESSION['user']["apellido"]?></b></small> </a></li>
+                	<?php if ($_SESSION['user']['gestor']): ?>
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                             Administrar <span class="caret"></span>
                           </a>
                           <ul class="dropdown-menu" role="menu" aria-labelledby="adminMenu">
-                            <li><a href="/admin/category">Categorias</a></li>
-                            <li><a href="/admin/order">Ordenes</a></li>
-                            <li><a href="/admin/product">Productos</a></li>
+                            <li><a href="/backend/category">Categorías</a></li>
+                            <li><a href="/backend/sintoma">Síntomas</a></li>
+                            <li><a href="/backend/ambulancia">Ambulancias</a></li>
                           </ul>
                         </li>
                 	<?php endif ?>
                 	<li><a href="/frontend/auth/logout">Cerrar Sesion</a></li>
                 <?php else: ?>
-        	        <li><a href="/frontend/auth/signin">Login</a></li>
+                    <li><a href="/frontend/signin">Inicio</a></li>
         	    <?php endif; ?>
               </ul>
             </div><!-- /.navbar-collapse -->
