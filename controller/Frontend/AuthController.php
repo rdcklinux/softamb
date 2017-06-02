@@ -46,7 +46,7 @@ class AuthController extends Controller {
     }
 
     private function userExists($rut){
-        return (new User)->select(['id','password','email', 'fullname', 'is_active'], "rut='$rut'")->fetch();
+        return (new User)->select(['id','password','email', 'nombre', 'apellido', 'activo'], "rut='$rut'")->fetch();
     }
 
 }
