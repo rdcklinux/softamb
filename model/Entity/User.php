@@ -4,7 +4,7 @@ namespace Model\Entity;
 use Library\Repository;
 
 class User extends Repository {
-  protected $table ='user';
+  protected $table ='persona';
 
   public function getName(){
     return "Nombre de Usuario";
