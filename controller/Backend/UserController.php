@@ -30,4 +30,14 @@ class UserController extends Controller {
 
       return [];
     }
+
+    function showAction(){
+      $category = new Category;
+      $categories = $category->select(["nombre", "id"]);
+      $c2 =$category->select(["nombre", "id"]);
+
+      return ["categories" => $categories, "c2" => $c2 , "title"=>"Listado Categorias"];
+    }
+
+    
 }

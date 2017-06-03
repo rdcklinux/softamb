@@ -58,7 +58,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `softamb`.`categoria`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `softamb`.`categoria` (
+CREATE TABLE IF NOT EXISTS `softamb`.`category` (
   `id` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
