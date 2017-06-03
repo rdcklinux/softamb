@@ -1,4 +1,4 @@
-<h1>Pantala gestor</h1>
+   <h4>Hola </h4>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     </head>
     <body>
-
+   
 				
 			    <div class="container">
 
