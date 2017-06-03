@@ -74,12 +74,12 @@ CREATE TABLE IF NOT EXISTS `softamb`.`sintoma` (
   `descripcion_sintomas` VARCHAR(45) NOT NULL,
   `primeros_auxilios` MEDIUMTEXT NULL DEFAULT NULL,
   `ambulancia` TINYINT(1) NULL,
-  `categoria_id` INT NOT NULL,
+  `category_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_sintoma_categoria1_idx` (`categoria_id` ASC),
-  CONSTRAINT `fk_sintoma_categoria1`
-    FOREIGN KEY (`categoria_id`)
-    REFERENCES `softamb`.`categoria` (`id`)
+  INDEX `fk_sintoma_category1_idx` (`category_id` ASC),
+  CONSTRAINT `fk_sintoma_category1`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `softamb`.`category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
