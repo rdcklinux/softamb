@@ -68,4 +68,9 @@ class Repository {
     return $conn->query($sql);
   }
 
+  public function getAll() {
+    $conn = $this->database->getConnection();
+    return $conn->query("select * from $this->table");
+  }  
+
 }

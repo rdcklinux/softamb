@@ -22,7 +22,7 @@
                 <div class="well">
                     <h4>RUT PACIENTE</h4>
                     <div class="input-group">
-                        <input type="text" name"buscar" class="form-control">
+                        <input type="text" class="form-control">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -37,29 +37,23 @@
 
                     <h4>DATOS PACIENTES</h4>
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-6">
                             <ul class="list-unstyled">
-                                <li><p>NOMBRE</p><input type="text" class="form-control">
+                                <li><p>NOMBRE</p>
                                 </li>
-                                <br>
-                                <li><p>APELLIDO</p><input type="text" class="form-control">
+                                <li><p>APELLIDO</p>
                                 </li>
-                                <br>
-                                <li><p>EDAD</p> <input type="text" class="form-control">
+                                <li><p>EDAD</p>
                                 </li>
-                                <br>
-                                <li><p>FECHA NACIMIENTO</p><input type="text" class="form-control">
+                                <li><p>FECHA NACIMIENTO</p>
                                 </li>
-                                <br>
-                                <li><p>TELEFONO</p><input type="text" class="form-control">
+                                <li><p>TELEFONO</p>
                                 </li>
-                                <br>
-                                <li><p>DIRECCION</p><input type="text" class="form-control">
+                                <li><p>DIRECCION</p>
                                 </li>
-                                <br>
                             </ul>
                         </div>
-                      <div class="col-lg-8">
+                      <div class="col-lg-6">
                             <ul class="list-unstyled">
                             <button type="button" class="btn btn-success">Editar</button>
                             </ul>

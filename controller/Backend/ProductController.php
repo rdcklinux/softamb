@@ -10,8 +10,8 @@ class ProductController extends Controller {
 
     function indexAction(){
         return [
-            'title'=>"La Tienda > inicio",
-            'personas'=>(new Product)->getAllproducts(),
+            'title'=>"La Tienda > Home",
+            'products'=>(new Product)->getAllproducts(),
         ];
     }
 

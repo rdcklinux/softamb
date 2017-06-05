@@ -107,20 +107,20 @@ INSERT INTO `category` (`id`, `nombre`) VALUES ('5', 'Manos');
 INSERT INTO `category` (`id`, `nombre`) VALUES ('6', 'Pies');
 
 -- Sintomas Basicos
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('1', 'Acidez', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '1');
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('2', 'Nauseas', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '1');
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('3', 'Dolor Punzante', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '1');
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('4', 'Ardor', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '1');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('1', 'Acidez', 'Estomago', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '1');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('2', 'Nauseas', 'Estomago', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '1');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('3', 'Dolor Punzante', 'Estomago', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '1');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('4', 'Ardor', 'Estomago', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '1');
 
 
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('5', 'Dolor Zona Frontal', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '2');
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('6', 'Mareos', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '2');
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('7', 'Perdida de Memoria', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '2');
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('8', 'Desmayos', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '1', '2');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('5', 'Dolor Zona Frontal', 'Cabeza', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '2');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('6', 'Mareos', 'Cabeza', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '2');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('7', 'Perdida de Memoria', 'Cabeza', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '2');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('8', 'Desmayos', 'Cabeza', 'Desc sintoma ....', 'Que hacer en caso de ....', '1', '2');
 
 
 
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('9', 'Dolor Lumbar', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '4');
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('10', 'Dolor Muscular', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '4');
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('11', 'Perdida de Movilidad', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '1', '4');
-INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('12', 'Fractura Expuesta', '1', 'Desc sintoma ....', 'Que hacer en caso de ....', '1', '4');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('9', 'Dolor Lumbar', 'Espalda', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '4');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('10', 'Dolor Muscular', 'Espalda', 'Desc sintoma ....', 'Que hacer en caso de ....', '0', '4');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('11', 'Perdida de Movilidad', 'Espalda', 'Desc sintoma ....', 'Que hacer en caso de ....', '1', '4');
+INSERT INTO `sintoma` (`id`, `nombre`,  `categoria`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES ('12', 'Fractura Expuesta', 'Espalda', 'Desc sintoma ....', 'Que hacer en caso de ....', '1', '4');
