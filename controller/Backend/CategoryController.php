@@ -3,6 +3,8 @@ namespace Controller\Backend;
 
 use Library\Controller;
 use Model\Entity\Category;
+use Model\Entity\Sintoma;
+use Model\Entity\User;
 use Model\Entity\Product;
 
 
@@ -12,9 +14,14 @@ class CategoryController extends Controller {
     function indexAction() {
 
       $category = new Category;
-      $categories = $category->select(["name", "id"]);
+      $sintoma = new Sintoma;
+      $user = new User;
 
-      return ["categories" => $categories, "title"=>"Listado Categorias"];
+      $categories = $category->getAll();
+      $sintomas = $sintoma-> getAll(); 
+      $users = $user-> getAll(); 
+
+      return ["categories" => $categories, "sintomas" => $sintomas, "users" => $users, "title"=>"Listado Categorias"];
 
     }
 

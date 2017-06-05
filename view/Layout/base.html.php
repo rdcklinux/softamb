@@ -52,9 +52,7 @@
             </div><!-- /.navbar-collapse -->
           </div>
         </nav>
-        <div class="container">
-        	<?php @include($this->view) ?>
-        </div>
+
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
         <script src="/js/datatables.min.js"></script>
@@ -62,5 +60,9 @@
         <script src="/js/buy.js"></script>
         <script src="/js/tables.js"></script>
         <script src="/js/order.js"></script>
+        
+        <div class="container">
+          <?php @include($this->view) ?>
+        </div>        
     </body>
 </html>
