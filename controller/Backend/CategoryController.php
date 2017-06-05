@@ -1,5 +1,5 @@
 <?php
-namespace Controller\Private;
+namespace Controller\Backend;
 
 use Library\Controller;
 use Model\Entity\Category;

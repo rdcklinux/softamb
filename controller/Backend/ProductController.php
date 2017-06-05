@@ -1,5 +1,5 @@
 <?php
-namespace Controller\Private;
+namespace Controller\Backend;
 
 use Library\Controller;
 use Model\Entity\Product;
@@ -10,8 +10,8 @@ class ProductController extends Controller {
 
     function indexAction(){
         return [
-            'title'=>"La Tienda > Home",
-            'products'=>(new Product)->getAllproducts(),
+            'title'=>"La Tienda > inicio",
+            'personas'=>(new Product)->getAllproducts(),
         ];
     }
 
