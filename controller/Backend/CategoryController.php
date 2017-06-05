@@ -39,5 +39,13 @@ class CategoryController extends Controller {
       $this->redirect('/admin/category?success=true');
     }
 
+    // Vista Temporal Categorias hasta que unamos todo el codigo en una vista
+    function showAction(){
+      $category = new Category;
+      $categories = $category->select(["nombre", "id"]);
+      $c2 =$category->select(["nombre", "id"]);
+
+      return ["categories" => $categories, "c2" => $c2 , "title"=>"Listado Categorias"];
+    }
 
 }
