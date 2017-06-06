@@ -15,6 +15,7 @@
    
         
           <div class="container">
+          <td><a href="/backend/persona/new" class="btn btn-lg btn-info">Crear nueva Persona</a></td> 
 
 <table id="users_table" class="data-table table table-hover table-striped table-condensed ">
             <thead >
@@ -43,11 +44,14 @@
                   <td><?= $row["direccion"] ?></td>
                   <td><?= $row["contacto"] ?></td>
                         <!-- Botones CRUD :) -->    
-                        <td><a href="#" data-category-name="<?= $row['nombre'] ?>" data-rut="<?= $row['rut'] ?>" class="btn btn-danger ">Eliminar</a></td>
+                        <td><a href="/backend/persona/delete?id=<?=$row['id']?>" class="btn btn-danger ">Eliminar</a></td>
                          
-                         <td><button type="button" class="btn btn-success">Editar</button></td>
-                          
+                         <td><a href="/backend/persona/new" class="btn btn-success">Editar</a></td>
+                           
+                                                  
                       </tr>
+
+
               <?php endforeach ?>
             </tbody>
 
