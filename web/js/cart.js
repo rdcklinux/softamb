@@ -2,10 +2,10 @@ $(function(){
     $('a.add-to-cart').on('click', function(){
         var rel = $(this).attr('rel');
         $.ajax({
-            url:'/shop/product/addCart',
+            url:'/shop/Persona/addCart',
             type:'POST',
             data:{
-                'product':{
+                'Persona':{
                     'id': rel,
                     'quantity':1
                 }
@@ -20,10 +20,10 @@ $(function(){
         var rel = $(this).attr('rel');
         var quantity = $(this).siblings('input').val();
         $.ajax({
-            url:'/shop/product/updateCart',
+            url:'/shop/Persona/updateCart',
             type:'POST',
             data:{
-                'product':{
+                'Persona':{
                     'id': rel,
                     'quantity':quantity
                 }
