@@ -18,23 +18,6 @@
             <tbody>
                 <?php foreach($users as $row): ?>
                   <tr>
-<<<<<<< HEAD
-                  <td><?= $row['id'] ?></td>
-                  <td><?=$row['nombre']?></td>
-                  <td><?= $row["rut"] ?></td>
-                  <td><?= $row["apellido"] ?></td>
-                  <td><?= $row["direccion"] ?></td>
-                  <td><?= $row["contacto"] ?></td>
-                        <!-- Botones CRUD :) -->    
-                        <td><a href="/backend/persona/delete?id=<?=$row['id']?>" class="btn btn-danger ">Eliminar</a></td>
-                         
-                         <td><a href="/backend/persona/edit?id=<?=$row['id']?> " class="btn btn-success">Editar</a></td>
-                           
-                                                  
-                      </tr>
-
-
-=======
                       <td><?= $row['id'] ?></td>
                       <td><?=$row['nombre']?></td>
                       <td><?= $row["rut"] ?></td>
@@ -42,9 +25,8 @@
                       <td><?= $row["direccion"] ?></td>
                       <td><?= $row["contacto"] ?></td>
                       <td><a href="/backend/persona/delete?id=<?=$row['id']?>" class="btn btn-danger ">Eliminar</a></td>
-                      <td><a href="/backend/persona/new" class="btn btn-success">Editar</a></td>
+                      <td><a href="/backend/persona/edit?id=<?=$row['id']?>" class="btn btn-success">Editar</a></td>
                   </tr>
->>>>>>> b425b71ee30085e562624894a5b28eda6dc8e7c8
               <?php endforeach ?>
             </tbody>
       </table>
