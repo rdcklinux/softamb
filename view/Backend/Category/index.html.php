@@ -7,7 +7,7 @@
         <div class="input-group">
             <input id="rut_search" type="text" class="form-control">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
+                <button id="trigger_rut_search" class="btn btn-default" type="button">
                     <span class="glyphicon glyphicon-search"></span>
             </button>
             </span>
@@ -130,7 +130,7 @@
 						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 						       
 						        <?php if($row["ambulancia"]): ?>
-						        	<button  type="button" data-cliente-seteado="<?= isSet($_SESSION['selectedCliente']) ?>" class="btn btn-success asignar_ambulancia">Assignar Ambulancia</button>
+						        	<button  type="button" data-user-id="<?=$row['id']?>" data-cliente-seteado="<?= isSet($_SESSION['selectedCliente']) ?>" class="btn btn-success asignar_ambulancia">Assignar Ambulancia</button>
 						        <?php else: ?>
 						        	<button  type="button" disabled class="btn btn-danger">No Requiere Ambulancia</button>
 						      	<?php endif; ?>
@@ -226,19 +226,6 @@
 
 		})
 
-		// $(".seleccionar_usuario").on("click", function(e){
-		// 	e.preventDefault()
-		// 	var users_table = $("#users_table").DataTable()
-		// 	var btn = $(this)
-		// 	var rut = btn.data("rut")
-		// 	// Busco solo en la columna Nombre Categoria
-		// 	users_table.search(rut).draw()
-		// 	//Pendiente:
-		// 	//Ajax que setee a este usuario en una variable de session para asignarle
-		// 	// las ambulancias a el automaticamente
-
-		// })		
-
 		$(".limpiar_busqueda").on("click", function(e){
 			var category_table = $("#category_table").DataTable()
 			var tabla_sintomas = $("#tabla_sintomas").DataTable()
@@ -247,46 +234,63 @@
 		})
 
 		
+		// Mensajes de alerta
+		<?php if( $_GET['alert'] == "rut_no_encontrado" ): ?>
+			alert("No se han encontrado clientes asociados al rut ingresado")
+		<?php elseif($_GET['alert'] == "cliente_seleccionado"): ?>
+			alert("Cliente encontrado")
+		<?php elseif($_GET['alert'] == "sin_ambulancias_libres"): ?>
+			alert("No quedan ambulancias libres para asignar")
+		<?php elseif($_GET['alert'] == "ambulancia_ya_asignada"): ?>
+			alert("Una ambulancia ya fue asignada a este cliente")					
+		<?php elseif($_GET['alert'] == "ambulancia_asignada"): ?>
+			alert("Ambulancia asignada exitosamente")					
+		<?php endif ?>		
+
 
 		$(".asignar_ambulancia").on("click", function(e){
 			var btn = $(this)
 			var cliente_seteado = btn.data("cliente-seteado") == "1"
-			console.log(cliente_seteado)
+			var user_id = "<?= $_SESSION['selectedCliente']['id'] ?>"
+
 			if (cliente_seteado == false) {
 				alert("debe seleccionar un cliente antes de asignarle una ambulancia")
 				return
 			}
-			// var id =  btn.data("id")
-			console.log("paso")
+
+      $.ajax({
+        url: "/backend/persona/asignarAmbulancia",
+        type: "POST",
+        dataType:'json',
+        data: { user_id: user_id},
+        success: function(response){
+          console.log(response)
+          window.location = response['alert_param'];
+        }
+      });			
+
 		})
 
 
-		<?php if( $_GET['alert'] == "rut_no_encontrado" ): ?>
-			alert("Debe seleccionar un cliente antes de intentar asignarle una ambulancia")
-		<?php endif ?>		
-
-		$(".seleccionar_usuario").on("click", function(){
-			var btn = $(this)
-			var rut =  btn.data("rut")
-			var id =  btn.data("id")
+		$("#trigger_rut_search").on("click", function(){
+			var rut =  $("#rut_search").val()
 
       $.ajax({
         url: "/backend/persona/setSelectedClient",
         type: "POST",
         dataType:'json',
-        data: { rut: rut, id: id},
+        data: { rut: rut},
         success: function(response){
           console.log(response)
+          window.location = response['alert_param'];
 
-          if(response['success']) {
-          	console.log("success")
-          	window.location.reload();
-        	} else {
-        		console.log("cliente no encontrado")
-        		window.location = "?alert=rut_no_encontrado";
-        	}
-
-
+         //  if(response['success']) {
+         //  	console.log("success")
+         //  	window.location = "?alert=cliente_seleccionado";
+        	// } else {
+        	// 	console.log("cliente no encontrado")
+        	// 	window.location = "?alert=rut_no_encontrado";
+        	// }
         }
       });
 
