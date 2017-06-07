@@ -25,7 +25,7 @@
                       <td><?= $row["direccion"] ?></td>
                       <td><?= $row["contacto"] ?></td>
                       <td><a href="/backend/persona/delete?id=<?=$row['id']?>" class="btn btn-danger ">Eliminar</a></td>
-                      <td><a href="/backend/persona/new" class="btn btn-success">Editar</a></td>
+                      <td><a href="/backend/persona/edit?id=<?=$row['id']?>" class="btn btn-success">Editar</a></td>
                   </tr>
               <?php endforeach ?>
             </tbody>

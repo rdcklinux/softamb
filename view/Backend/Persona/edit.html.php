@@ -4,7 +4,7 @@
 		<div class="col-md-6 col-md-offset-3">
 			<h1 class="text-center"><?=$title?></h1>
 			<br>
-			<form role="form" action="/Backend/Persona/create" method="POST">
+			<form role="form" action="/Backend/persona/save" method="post">
                               
 				<div class="form-group">
 					Rut<input type="text"  name="rut" class="form-control ">
@@ -13,7 +13,7 @@
 					Password<input type="text"  name="password" class="form-control ">
 				</div>              
 				<div class="form-group">
-					Nombre <input type="text"  name="nombre" class="form-control ">
+					Nombre <input type="text"  value="<?=$persona['nombre']?>" name="nombre" class="form-control ">
 				</div>         
 				<div class="form-group">
 					Apellido <input type="text"  name="apellido" class="form-control ">
@@ -40,7 +40,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						
-						<button type="submit" class="btn btn-success btn-block">Guardar</button>
+						<button type="submit" class="btn btn-success btn-block">Actualizar</button>
 
 					</div>
 					<div class="col-md-6">
