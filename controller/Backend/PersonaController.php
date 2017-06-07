@@ -3,6 +3,7 @@ namespace Controller\Backend;
 
 use Library\Controller;
 use Model\Entity\User;
+use Model\Entity\Persona;
 /**
 * 
 */
@@ -35,15 +36,32 @@ class PersonaController extends Controller
 
       // echo "entramos";
 
-      // $query_fields = ['rut'=> 'cliente', 'password'=>'356a192b7913b04c54574d18c28d46e6395428ab', 'nombre'=>'Perdro', 'apellido'=>'Saez', 'fecha_nacimiento'=>'1992/06/23','direccion'=>'las nieves verdes',
-      //   'contacto'=>'9999999','activo'=>1 , 'gestor'=>0, 'cliente'=>1];
+      $query_fields = ['rut'=>$_POST["rut"], 'password'=>$_POST["password"], 'nombre'=>$_POST["nombre"], 'apellido'=>$_POST["apellido"], 'fecha_nacimiento'=>$_POST["fecha_nacimiento"],'direccion'=>$_POST["direccion"],
+        'contacto'=>$_POST["contacto"],'activo'=>$_POST["activo"], 'gestor'=>$_POST["gestor"], 'cliente'=>$_POST["cliente"] ];
 
-      //   echo $query_fields;
+        // echo $query_fields;
       
-      // $user = new User;
-      // $user->create($query_fields);
+      $user = new User;
+      $user->create($query_fields);
       $this->redirect('/backend/persona?success=true');
      // $this->redirect('/backend/persona/asda');
     }    
+
+
+
+    function editAction(){
+
+        $id = $_GET["id"];
+        $Persona = (new Persona)->getOnePersonaById($id);
+
+        //$user->select(['rut','password','nombre','apellido','fecha_nacimiento', 'direccion', 'contacto', 
+          //               'activo', 'gestor', 'cliente']);
+        //$user ->fetch();
+
+
+        return ['persona'=>$Persona];
+        $this->redirect('/backend/persona/actualizar');
+    }
+
 
 }

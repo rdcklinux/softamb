@@ -4,7 +4,7 @@
 		<div class="col-md-6 col-md-offset-3">
 			<h1 class="text-center"><?=$title?></h1>
 			<br>
-			<form role="form" action="/Backend/Persona/new" method="POST">
+			<form role="form" action="/Backend/Persona/create" method="POST">
                               
 				<div class="form-group">
 					Rut<input type="text"  name="rut" class="form-control ">
