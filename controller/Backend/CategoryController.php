@@ -1,60 +1,31 @@
 <?php
 namespace Controller\Backend;
 
-use Library\Controller;
-use Model\Entity\Category;
-use Model\Entity\Sintoma;
-use Model\Entity\User;
-use Model\Entity\Product;
+use Library\CrudController;
 
-
-class CategoryController extends Controller {
+class CategoryController extends CrudController {
     static $template = 'Layout/base.html.php';
 
-    function indexAction() {
+    protected $entity = null;
+    protected $module = 'category';
+    protected $route = [
+        'index' => '/backend/category',
+        'edit' => '/backend/category/edit',
+    ];
+    protected $vtitles = [
+        'index'=>'Listado de Categorias',
+        'edit'=>'Editar Categoria',
+        'new'=>'Nueva Categoria',
+    ];
+    protected $fields = [
+        'nombre'=>['name'=>'Nombre','type'=>'text'],
+    ];
+    protected $messages = [
+        'save'=>'Categoria guardada con exito',
+        'create'=>'Categoria creada con exito',
+    ];
 
-      $category = new Category;
-      $sintoma = new Sintoma;
-      $user = new User;
-
-      $categories = $category->getAll();
-      $sintomas = $sintoma-> getAll(); 
-
-      $query_clientes = "select * from persona where cliente = 1;";
-      $users = (new User)->customQuery($query_clientes)->fetchAll();      
-
-      return ["categories" => $categories, "sintomas" => $sintomas, "users" => $users, "title"=>"Listado Categorias"];
-
+    function __construct(){
+        $this->entity = new \Model\Entity\Category;
     }
-
-    function newAction(){
-      return ['title' => "Ingresar Nueva Categoria"];
-    }
-
-    function createAction(){
-      $nombre_categoria = $_POST["name"];
-
-      $category = new Category;
-      $category->create(['name'=>$nombre_categoria ]);
-      $this->redirect('/admin/category');
-      return ["title" => "Listado Categorias"];
-    }
-
-    function deleteAction(){
-      $category_id = $_GET["id"];
-
-      $category = new Category;
-      $category->delete($category_id);
-      $this->redirect('/admin/category?success=true');
-    }
-
-    // Vista Temporal Categorias hasta que unamos todo el codigo en una vista
-    function showAction(){
-      $category = new Category;
-      $categories = $category->select(["nombre", "id"]);
-      $c2 =$category->select(["nombre", "id"]);
-
-      return ["categories" => $categories, "c2" => $c2 , "title"=>"Listado Categorias"];
-    }
-
 }
