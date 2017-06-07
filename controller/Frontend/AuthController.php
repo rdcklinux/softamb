@@ -2,7 +2,7 @@
 namespace Controller\Frontend;
 
 use Library\Controller;
-use Model\Entity\User;
+use Model\Entity\Persona;
 
 class AuthController extends Controller {
     static $template = 'Layout/base.html.php';
@@ -46,7 +46,7 @@ class AuthController extends Controller {
     }
 
     private function userExists($rut){
-        return (new User)->select('*', "rut='$rut' AND activo=1")->fetch();
+        return (new Persona)->select('*', "rut='$rut' AND activo=1")->fetch();
     }
 
 }

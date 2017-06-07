@@ -3,7 +3,7 @@ namespace Controller\Backend;
 
 use Library\Controller;
 use Model\Company;
-use Model\Entity\User;
+use Model\Entity\Persona;
 
 
 class ClientController extends Controller {
@@ -22,14 +22,14 @@ class ClientController extends Controller {
     function saveAction(){
         $id = (int)$person = $this->getPerson()['id'];
         $data = $_POST['person'];
-        $user = new User;
+        $user = new Persona;
         $user->update($id, $data);
         $_SESSION['message']="Datos Actualizados con exito";
         $this->redirect('/backend/client');
     }
 
     private function getPerson(){
-        $user = new User;
+        $user = new Persona;
         $rut = $_SESSION['user']['rut'];
         return $user->select('*', "rut='$rut'")->fetch();
     }
