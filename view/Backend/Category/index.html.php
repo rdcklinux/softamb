@@ -1,9 +1,56 @@
 
  <div class="row">
+	 <div class="col-md-4">
+     <!-- Blog Search Well -->
+    <div class="well">
+        <h4>RUT PACIENTE</h4>
+        <div class="input-group">
+            <input id="rut_search" type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+            </button>
+            </span>
+        </div>
+        <!-- /.input-group -->
+    </div>
+
+    <!-- Blog Categories Well -->
+    <div class="well">
+
+        <h4>DATOS PACIENTES</h4>
+        <div class="row">
+            <div class="col-lg-6">
+                <ul class="list-unstyled">
+                    <li><p>NOMBRE: <?= $_SESSION['selectedCliente']['nombre'] ?></p>
+                    </li>
+                    <li><p>APELLIDO: <?= $_SESSION['selectedCliente']['apellido'] ?></p>
+                    </li>
+                    <li><p>RUT: <?= $_SESSION['selectedCliente']['rut'] ?></p>
+                    </li>
+                    <li><p>FECHA NACIMIENTO: <?= $_SESSION['selectedCliente']['fecha_nacimiento'] ?> </p>
+                    </li>
+                    <li><p>TELEFONO: <?= $_SESSION['selectedCliente']['contacto'] ?></p>
+                    </li>
+                    <li><p>DIRECCION: <?= $_SESSION['selectedCliente']['direccion'] ?></p>
+                    </li>
+                </ul>
+            </div>
+          <div class="col-lg-6">
+                <ul class="list-unstyled">
+                <button type="button" class="btn btn-success">Editar</button>
+                </ul>
+         </div>
+
+        </div>
+        <!-- /.row -->
+    </div> 		
+
+	 </div>
 
  	<div class="col-md-8 col-md-offset-2">
 
-		<h1 class=""><?php echo $title ?></h1><br>
+		<h1 class=""><?= $title ?></h1><br>
 	 	<a href="#" class="btn btn-xs btn-info limpiar_busqueda">Limpiar Busqueda</a>
 
 	 	<table id="category_table" class="data-table table table-hover table-striped table-condensed ">
@@ -61,8 +108,37 @@
 			      <td><?=$row['categoria']?></td>
 			      <td><?= $row["ambulancia"] ? "Si" : "No" ?></td>
 
-				 		<td><a href="#" class="btn btn-block btn-sm btn-primary">Mas Informacion</a></td>
+				 		<td><a href="#modal_sintoma_<?= $row['id']?>"  data-toggle="modal" class="btn btn-block btn-sm btn-primary">Mas Informacion</a></td>
 				  </tr>
+
+
+						<div id="modal_sintoma_<?= $row['id']?>" class="modal fade" tabindex="-1" role="dialog">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h3 class="modal-title">Primeros Auxilios </h3>
+						      </div>
+						      <div class="modal-body">
+						      	<h4>Sintoma: <?=$row['nombre']?></h4>
+						      	<br>
+						        <p><?=$row['primeros_auxilios']?></p>
+						        
+						      </div>
+		
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						       
+						        <?php if($row["ambulancia"]): ?>
+						        	<button  type="button" data-cliente-seteado="<?= isSet($_SESSION['selectedCliente']) ?>" class="btn btn-success asignar_ambulancia">Assignar Ambulancia</button>
+						        <?php else: ?>
+						        	<button  type="button" disabled class="btn btn-danger">No Requiere Ambulancia</button>
+						      	<?php endif; ?>
+
+						      </div>
+						    </div><!-- /.modal-content -->
+						  </div><!-- /.modal-dialog -->
+						</div><!-- /.modal -->				  
 			  <?php endforeach ?>
 	 		</tbody>
 
@@ -98,7 +174,7 @@
 			      <td><?= $row["direccion"] ?></td>
 			      <td><?= $row["contacto"] ?></td>
 				 		<!-- Botones CRUD :) -->	
-				 		<td><a href="#" data-category-name="<?= $row['nombre'] ?>" data-rut="<?= $row['rut'] ?>" class="btn btn-block btn-xs btn-success seleccionar_usuario">Seleccionar Usuario</a></td>
+				 		<td><a href="#" data-id="<?= $row["id"] ?>" data-rut="<?= $row["rut"] ?>" data-category-name="<?= $row['nombre'] ?>" data-rut="<?= $row['rut'] ?>" class="btn btn-block btn-xs btn-success seleccionar_usuario">Seleccionar Usuario</a></td>
 				  </tr>
 			  <?php endforeach ?>
 	 		</tbody>
@@ -150,24 +226,71 @@
 
 		})
 
-		$(".seleccionar_usuario").on("click", function(e){
-			e.preventDefault()
-			var users_table = $("#users_table").DataTable()
-			var btn = $(this)
-			var rut = btn.data("rut")
-			// Busco solo en la columna Nombre Categoria
-			users_table.search(rut).draw()
-			//Pendiente:
-			//Ajax que setee a este usuario en una variable de session para asignarle
-			// las ambulancias a el automaticamente
+		// $(".seleccionar_usuario").on("click", function(e){
+		// 	e.preventDefault()
+		// 	var users_table = $("#users_table").DataTable()
+		// 	var btn = $(this)
+		// 	var rut = btn.data("rut")
+		// 	// Busco solo en la columna Nombre Categoria
+		// 	users_table.search(rut).draw()
+		// 	//Pendiente:
+		// 	//Ajax que setee a este usuario en una variable de session para asignarle
+		// 	// las ambulancias a el automaticamente
 
-		})		
+		// })		
 
 		$(".limpiar_busqueda").on("click", function(e){
 			var category_table = $("#category_table").DataTable()
 			var tabla_sintomas = $("#tabla_sintomas").DataTable()
 			category_table.search("").draw()
 			tabla_sintomas.search("").draw()
+		})
+
+		
+
+		$(".asignar_ambulancia").on("click", function(e){
+			var btn = $(this)
+			var cliente_seteado = btn.data("cliente-seteado") == "1"
+			console.log(cliente_seteado)
+			if (cliente_seteado == false) {
+				alert("debe seleccionar un cliente antes de asignarle una ambulancia")
+				return
+			}
+			// var id =  btn.data("id")
+			console.log("paso")
+		})
+
+
+		<?php if( $_GET['alert'] == "rut_no_encontrado" ): ?>
+			alert("Debe seleccionar un cliente antes de intentar asignarle una ambulancia")
+		<?php endif ?>		
+
+		$(".seleccionar_usuario").on("click", function(){
+			var btn = $(this)
+			var rut =  btn.data("rut")
+			var id =  btn.data("id")
+
+      $.ajax({
+        url: "/backend/persona/setSelectedClient",
+        type: "POST",
+        dataType:'json',
+        data: { rut: rut, id: id},
+        success: function(response){
+          console.log(response)
+
+          if(response['success']) {
+          	console.log("success")
+          	window.location.reload();
+        	} else {
+        		console.log("cliente no encontrado")
+        		window.location = "?alert=rut_no_encontrado";
+        	}
+
+
+        }
+      });
+
+
 		})
 	})
 </script>

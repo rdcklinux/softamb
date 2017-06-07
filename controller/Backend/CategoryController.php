@@ -19,7 +19,9 @@ class CategoryController extends Controller {
 
       $categories = $category->getAll();
       $sintomas = $sintoma-> getAll(); 
-      $users = $user-> getAll(); 
+
+      $query_clientes = "select * from persona where cliente = 1;";
+      $users = (new User)->customQuery($query_clientes)->fetchAll();      
 
       return ["categories" => $categories, "sintomas" => $sintomas, "users" => $users, "title"=>"Listado Categorias"];
 
