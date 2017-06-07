@@ -1,4 +1,8 @@
- <h1><?=$vtitle?></h1>
+ <h1><?=$vtitle?> para</h1>
+ <p>
+     Nombre Titular: <strong><?=$persona['nombre']?> <?=$persona['apellido']?></strong>
+     <br/>Run titular: <strong><?=$persona['rut']?></strong>
+ </p>
 <a href="/backend/<?=$module?>/new" class="btn btn-success">Nueva <?=ucfirst($module)?></a>
 <table class="table data-table">
     <thead>
@@ -11,7 +15,6 @@
     </thead>
     <tbody>
         <?php foreach($entities as $entity):?>
-            <?php if(!$entity['activo'] && !$entity['gestor'] && !$entity['cliente'] ) continue;?>
         <tr>
             <?php foreach($fields as $key=>$field):?>
             <?php
@@ -22,7 +25,6 @@
             <td><?=$entity[$key]?></td>
             <?php endforeach?>
             <td>
-                <a href="/backend/carga?persona=<?=$entity['id']?>" class="btn btn-default">Ver Cargas</a>
                 <a href="/backend/<?=$module?>/edit?id=<?=$entity['id']?>" class="btn btn-success">Editar</a>
                 <a href="/backend/<?=$module?>/delete?id=<?=$entity['id']?>" class="btn btn-danger">Eliminar</a>
             </td>
@@ -30,3 +32,4 @@
     <?php endforeach ?>
     </tbody>
 </table>
+<a href="/backend/persona" class="btn btn-default">Volver a Personas</a>

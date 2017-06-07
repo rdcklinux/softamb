@@ -1,4 +1,8 @@
 <h1><?=$vtitle?></h1>
+<p>
+    Nombre Titular: <strong><?=$persona['nombre']?> <?=$persona['apellido']?></strong>
+    <br/>Run titular: <strong><?=$persona['rut']?></strong>
+</p>
 <?php if($_SESSION['message']):?>
     <p class="alert alert-success"><?=$_SESSION['message']?></p>
     <?php unset($_SESSION['message']) ?>

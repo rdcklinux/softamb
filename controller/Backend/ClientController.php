@@ -2,7 +2,6 @@
 namespace Controller\Backend;
 
 use Library\Controller;
-use Model\Company;
 use Model\Entity\Persona;
 
 
