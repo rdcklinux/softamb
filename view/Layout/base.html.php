@@ -60,9 +60,9 @@
         <script src="/js/buy.js"></script>
         <script src="/js/tables.js"></script>
         <script src="/js/order.js"></script>
-        
+
         <div class="container">
           <?php @include($this->view) ?>
-        </div>        
+        </div>
     </body>
 </html>
