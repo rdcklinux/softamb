@@ -60,7 +60,16 @@ class PersonaController extends Controller
 
 
         return ['persona'=>$Persona];
-        $this->redirect('/backend/persona/actualizar');
+
+    }
+
+    function saveAction(){
+      $id = (int)$_GET["id"];
+      $query_fields = ['rut'=>$_POST["rut"], 'password'=>$_POST["password"], 'nombre'=>$_POST["nombre"], 'apellido'=>$_POST["apellido"], 'fecha_nacimiento'=>$_POST["fecha_nacimiento"],'direccion'=>$_POST["direccion"],
+        'contacto'=>$_POST["contacto"],'activo'=>$_POST["activo"], 'gestor'=>$_POST["gestor"], 'cliente'=>$_POST["cliente"] ];
+      $persona = new Persona;
+      $persona->update($id, $query_fields);
+      $this->redirect('/backend/persona');
     }
 
 
