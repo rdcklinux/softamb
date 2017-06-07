@@ -1,6 +1,6 @@
 
 <br>
-	
+
 <div class="container">
   <div class="col-md-4">
 
@@ -39,13 +39,13 @@
                     </li>
                 </ul>
             </div>
-          <div class="col-md-12">    
+          <div class="col-md-12">
             <a href="/backend/persona/edit?id=<?= $_SESSION['selectedCliente']['id'] ?>" class="btn btn-success btn-sm btn-block">Editar</a>
          </div>
 
         </div>
         <!-- /.row -->
-    </div>      
+    </div>
 
 
     <div class="well">
@@ -63,7 +63,7 @@
                   </li>
                 </ul>
             </div>
-          <div class="col-md-12">    
+          <div class="col-md-12">
             <a href="/backend/persona/editCarga?id=" class="btn btn-success btn-sm btn-block">Editar</a>
          </div>
         </div>
@@ -77,7 +77,7 @@
     <h1 class=""><?= $title ?></h1><br>
     <a href="#" class="btn btn-xs btn-info limpiar_busqueda">Limpiar Busqueda</a>
 
-    <table id="category_table" class="data-table table table-hover table-striped table-condensed ">
+    <table id="category_table" class="table table-hover table-striped table-condensed ">
       <thead >
         <tr >
           <th>ID</th>
@@ -89,7 +89,7 @@
 
 
       <tbody>
-         
+
         <?php foreach($categories as $row): ?>
           <?php $category_id = $row['id'] ?>
 
@@ -109,7 +109,7 @@
     <h2>Listado de Sintomas</h2>
     <br>
 
-    <table id="tabla_sintomas" class="data-table table table-hover table-striped table-condensed ">
+    <table id="tabla_sintomas" class="table table-hover table-striped table-condensed ">
       <thead >
         <tr >
           <th>ID</th>
@@ -127,8 +127,8 @@
 
           <tr>
             <td><?= $row['id']?></td>
-            <td><?=$row['nombre']?></td>
-            <td><?=$row['categoria']?></td>
+            <td><?=$row['descripcion']?></td>
+            <td><?=$row['category_id']?></td>
             <td><a class="btn btn-block btn-xs btn-<?= $row['ambulancia'] ? 'success' : 'default' ?>"><?= $row["ambulancia"] ? "Si" : "No" ?></a></td>
 
             <td><a href="#modal_sintoma_<?= $row['id']?>"  data-toggle="modal" class="btn btn-block btn-xs btn-primary">Mas Informacion</a></td>
@@ -146,12 +146,12 @@
                     <h4>Sintoma: <?=$row['nombre']?></h4>
                     <br>
                     <p><?=$row['primeros_auxilios']?></p>
-                    
+
                   </div>
-    
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                   
+
                     <?php if($row["ambulancia"]): ?>
                       <button  type="button" data-user-id="<?=$row['id']?>" data-cliente-seteado="<?= isSet($_SESSION['selectedCliente']) ?>" class="btn btn-success asignar_ambulancia">Assignar Ambulancia</button>
                     <?php else: ?>
@@ -161,7 +161,7 @@
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->          
+            </div><!-- /.modal -->
         <?php endforeach ?>
       </tbody>
 
@@ -183,7 +183,7 @@
 
 
 <script type="text/javascript">
-  
+
 
   $(document).ready(function(){
 
@@ -205,7 +205,7 @@
         });
     });
 
-  
+
     $(".seleccionar_categoria").on("click", function(e){
       var category_table = $("#category_table").DataTable()
       var tabla_sintomas = $("#tabla_sintomas").DataTable()
@@ -227,7 +227,7 @@
       tabla_sintomas.search("").draw()
     })
 
-    
+
     // Mensajes de alerta
     <?php if( $_GET['alert'] == "rut_no_encontrado" ): ?>
       alert("No se han encontrado clientes asociados al rut ingresado")
@@ -236,10 +236,10 @@
     <?php elseif($_GET['alert'] == "sin_ambulancias_libres"): ?>
       alert("No quedan ambulancias libres para asignar")
     <?php elseif($_GET['alert'] == "ambulancia_ya_asignada"): ?>
-      alert("Una ambulancia ya fue asignada a este cliente")          
+      alert("Una ambulancia ya fue asignada a este cliente")
     <?php elseif($_GET['alert'] == "ambulancia_asignada"): ?>
-      alert("Ambulancia asignada exitosamente")         
-    <?php endif ?>    
+      alert("Ambulancia asignada exitosamente")
+    <?php endif ?>
 
 
     $(".asignar_ambulancia").on("click", function(e){
@@ -261,7 +261,7 @@
           console.log(response)
           window.location = response['alert_param'];
         }
-      });     
+      });
 
     })
 
@@ -283,4 +283,3 @@
     })
   })
 </script>
-

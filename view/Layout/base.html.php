@@ -41,6 +41,7 @@
                             <li><a href="/backend/category">Categorías</a></li>
                             <li><a href="/backend/sintoma">Síntomas</a></li>
                             <li><a href="/backend/ambulancia">Ambulancias</a></li>
+                            <li><a href="/backend/persona">Personas</a></li>
                           </ul>
                         </li>
                 	<?php endif ?>

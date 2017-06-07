@@ -1,5 +1,5 @@
 <h1><?=$vtitle?></h1>
-<a href="/backend/<?=$module?>/new" class="btn btn-success">Nueva <?=ucfirst($module)?></a>
+<a href="/backend/<?=$module?>/new" class="btn btn-success">Nuevo <?=ucfirst($module)?></a>
 <table class="table data-table">
     <thead>
     <tr>
