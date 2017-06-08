@@ -32,4 +32,4 @@
     <?php endforeach ?>
     </tbody>
 </table>
-<a href="/backend/welcome" class="btn btn-default">Volver a Personas</a>
+<a href="/backend/persona" class="btn btn-default">Volver a Personas</a>

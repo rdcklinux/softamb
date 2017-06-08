@@ -41,7 +41,7 @@ class AuthController extends Controller {
     }
 
     function logoutAction(){
-      unset($_SESSION['user']);
+      session_destroy();
       $this->redirect('/frontend');
     }
 

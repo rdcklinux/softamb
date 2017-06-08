@@ -19,7 +19,7 @@ class SintomaController extends CrudController {
         'new'=>'Nuevo Sintoma',
     ];
     protected $fields = [
-        'descripcion_sintomas'=>['name'=>'Descripción','type'=>'textarea'],
+        'descripcion'=>['name'=>'Descripción','type'=>'textarea'],
         'primeros_auxilios'=>['name'=>'Primeros Auxilios','type'=>'textarea'],
         'ambulancia'=>['name'=>'Necesita Ambulancia?','type'=>'checkbox'],
         'category_id'=>['name'=>'Categoria','type'=>'select'],

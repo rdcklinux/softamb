@@ -19,6 +19,7 @@ class Database {
         'dbname'=>$params['database'],
         'host'=>$params['host'],
         'port'=>$params['port'],
+        'charset'=>'utf8',
       ];
       $arrayConn=[];
       foreach($data as $key=>$value){
