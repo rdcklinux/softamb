@@ -129,7 +129,7 @@ INSERT INTO `persona` (`id`, `rut`, `password`, `nombre`, `apellido`, `fecha_nac
 
 CREATE TABLE `sintoma` (
   `id` int(11) NOT NULL,
-  `descripcion_sintomas` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
   `primeros_auxilios` mediumtext,
   `ambulancia` tinyint(1) DEFAULT NULL,
   `category_id` int(11) NOT NULL
@@ -139,7 +139,7 @@ CREATE TABLE `sintoma` (
 -- Dumping data for table `sintoma`
 --
 
-INSERT INTO `sintoma` (`id`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES
+INSERT INTO `sintoma` (`id`, `descripcion`, `primeros_auxilios`, `ambulancia`, `category_id`) VALUES
 (11, '1 Inapetencia\r\n2 Náuseas o vómitos\r\n*Dolor en la parte superior del vientre o el abdome', '1- Poner Guatero caliente en la sona con dolor\r\n2- Tomar infuciones calientes\r\n3- ingerir 25 gotas de viadil forte\r\n\r\nConsulte con el médico si presenta:\r\n\r\n- Dolor en la parte superior del vientre o el abdomen que no desaparece.\r\n\r\n- Vómito con sangre o material con aspecto de cuncho de café.', 0, 1),
 (12, '1 Dolor Abdominar superios\r\n2 Colicos e hinchazon\r\n3 Perdida de apetito\r\n4 Resequedad bucal ', '1 Tomar infusiones tales como:Matico, Menta, Manzanilla\r\n\r\n2 Ingerir 25 gotas de Viadil forte\r\n\r\nSi los dolores persiste luego de haber transcurrido 45 minutos\r\n\r\nAcuda a medicina general', 0, 1),
 (13, '1 Fuerte dolor abdominar\r\n2 Vomitos \r\n3 Deposiciones con sangre', 'Acudir de inmediato a un centro medico ', 1, 1),
