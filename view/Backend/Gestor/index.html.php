@@ -61,7 +61,7 @@
                   <li><p>RUT: <?= $carga["rut"] ?></p>
                   </li>
                   <li><p>EDAD: <?= $carga["telefono"] ?></p>
-                  </li>                  
+                  </li>
                 </ul>
             </div>
           <div class="col-md-12">
@@ -133,7 +133,7 @@
             <td><?= $row['id']?></td>
             <td><?=$row['nombre']?></td>
             <td><?=$row['category_id']?></td>
-            <td><a class="btn btn-block btn-xs btn-<?= $row['ambulancia'] ? 'success' : 'default' ?>"><?= $row["ambulancia"] ? "Si" : "No" ?></a></td>
+            <td><?= $row["ambulancia"] ? "Si" : "No" ?></td>
 
             <td><a href="#modal_sintoma_<?= $row['id']?>"  data-toggle="modal" class="btn btn-block btn-xs btn-primary">Mas Informacion</a></td>
           </tr>
@@ -149,7 +149,7 @@
                   <div class="modal-body">
                     <h4>Sintoma: <?=$row['nombre']?></h4>
                     <br>
-                    <p>Descripcion: <?=$row['descripcion_sintomas']?></p>
+                    <p>Descripcion: <?=$row['descripcion']?></p>
                     <p></p>
                     <hr>
                     <h4>Primeros Auxilios:</h4>
@@ -162,10 +162,7 @@
 
                     <?php if($row["ambulancia"]): ?>
                       <button  type="button" data-user-id="<?=$row['id']?>" data-cliente-seteado="<?= isSet($_SESSION['selectedCliente']) ?>" class="btn btn-success asignar_ambulancia">Assignar Ambulancia</button>
-                    <?php else: ?>
-                      <button  type="button" disabled class="btn btn-danger">No Requiere Ambulancia</button>
                     <?php endif; ?>
-
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
