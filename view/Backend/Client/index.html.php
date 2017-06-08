@@ -30,4 +30,4 @@
     </tr>
 </table>
 <a href="/backend/client/edit" class="btn btn-default">Cambiar mis datos</a>
-<a href="/backend/client/edit" class="btn btn-success">Solucion a sintomas</a>
+<a href="/backend/client/home" class="btn btn-success">Solucion a sintomas</a>

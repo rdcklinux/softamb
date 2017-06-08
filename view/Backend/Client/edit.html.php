@@ -26,7 +26,7 @@
         <td><input value="<?=$persona['direccion']?>" type="text" class="form-control" name="person[direccion]"></td>
     </tr>
 </table>
-<a href="/backend/client" class="btn btn-default">volver</a>
+<a href="/backend/welcome" class="btn btn-default">volver</a>
 <button type="submit" class="btn btn-success">Guardar</button>
 </form>
 

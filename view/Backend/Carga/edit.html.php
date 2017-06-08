@@ -22,6 +22,6 @@
     </tr>
     <?php endforeach ?>
 </table>
-<a href="/backend/<?=$module?>" class="btn btn-default">Volver</a>
+<a href="/backend/welcome" class="btn btn-default">Volver</a>
 <button type="submit" class="btn btn-success">Guardar</button>
 </form>
