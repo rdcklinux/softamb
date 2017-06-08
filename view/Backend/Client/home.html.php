@@ -26,7 +26,7 @@
                 </ul>
             </div>
           <div class="col-md-12">
-            <a href="/backend/client/edit?id=<?= $_SESSION['user']['id'] ?>" class="btn btn-success btn-sm btn-block">Editar</a>
+            <a href="/backend/persona/edit?id=<?= $_SESSION['user']['id'] ?>" class="btn btn-success btn-sm btn-block">Editar</a>
          </div>
 
         </div>

@@ -46,7 +46,7 @@ class PersonaController extends CrudController {
     }
 
     function indexAction(){
-     if(!$_SESSION['user']['gestor']); $this->redirect('/backend/welcome');
+     if(!$_SESSION['user']['gestor']); $this->redirect('/backend/client/home');
      unset($this->fields['password'], $this->fields['r_password'], $this->fields['direccion']);
       return parent::indexAction();
     }
@@ -69,7 +69,7 @@ class PersonaController extends CrudController {
     }
 
     function createAction(){
-        if(!$_SESSION['user']['gestor']); $this->redirect('/backend/welcome');
+        if(!$_SESSION['user']['gestor']); $this->redirect('/backend/client/home');
         if($_POST['entity']['password'] == $_POST['entity']['r_password'] && !empty($_POST['entity']['password'])){
             $_POST['entity']['password'] = sha1($_POST['entity']['password']);
             unset($_POST['entity']['r_password']);

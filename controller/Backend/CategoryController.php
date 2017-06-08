@@ -26,7 +26,7 @@ class CategoryController extends CrudController {
     ];
 
     function __construct(){
-        if(!$_SESSION['user']['gestor']); $this->redirect('/backend/welcome');
+        if(!$_SESSION['user']['gestor']); $this->redirect('/backend/client/home');
         $this->entity = new \Model\Entity\Category;
     }
 }
