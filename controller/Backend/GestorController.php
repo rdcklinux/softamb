@@ -27,7 +27,8 @@ class GestorController extends Controller {
       $cargas = [];
 
       if (isSet($_SESSION['selectedCliente'])) {
-        $query_cargas = "SELECT * FROM carga join persona on persona.id = carga_id WHERE persona_id = 3";
+        $id_cliente = $_SESSION['selectedCliente']["id"];
+        $query_cargas = "SELECT * FROM carga join persona on persona.id = carga_id WHERE persona_id = $id_cliente";
         $cargas = (new Carga)->customQuery($query_cargas)-> fetchAll();
       }
 
