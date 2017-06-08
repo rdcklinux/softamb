@@ -25,34 +25,34 @@
                 <?php foreach($fields as $key=>$field):?>
                 <td><?=$entity[$key]?></td>
                 <?php endforeach?>
-                
+
                 <td>
-                  <?php if (isSet($entity['persona_id'])): ?>
-                     <a href="/backend/ambulancia/liberarAmbulancia?id=<?=$entity['id']?>" class="btn btn-warning btn-xs btn-block liberar_ambulancia">Liberar Ambulancia</a> 
+                  <?php if (!empty($entity['persona_id'])): ?>
+                     <a href="/backend/ambulancia/release?id=<?=$entity['id']?>" class="btn btn-warning btn-xs btn-block liberar_ambulancia">Liberar Ambulancia</a>
                   <?php else: ?>
-                     <a href="#" class="btn btn-default btn-xs btn-block "><span class="text-success">Disponible</span></a>                                
-                  <?php endif ?> 
+                     <span>Disponible</span>
+                  <?php endif ?>
                 </td>
 
 
                 <td>
-                    <a href="/backend/<?=$module?>/edit?id=<?=$entity['id']?>" class="btn btn-success btn-xs btn-block">Editar</a>                
+                    <a href="/backend/<?=$module?>/edit?id=<?=$entity['id']?>" class="btn btn-success btn-xs btn-block">Editar</a>
                 </td>
                 <td>
-                    <a href="/backend/<?=$module?>/delete?id=<?=$entity['id']?>" class="btn btn-danger btn-xs btn-block">Eliminar</a>                
+                    <a href="/backend/<?=$module?>/delete?id=<?=$entity['id']?>" class="btn btn-danger btn-xs btn-block">Eliminar</a>
                 </td>
             </tr>
         <?php endforeach ?>
         </tbody>
     </table>
 
-    
+
   </div>
 </div>
 
 
 <script type="text/javascript">
-  
+
 
     // $(".liberar_ambulancia").on("click", function(e){
     //   var btn = $(this)

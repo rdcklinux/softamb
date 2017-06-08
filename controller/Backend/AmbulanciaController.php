@@ -2,7 +2,6 @@
 namespace Controller\Backend;
 
 use Library\CrudController;
-use Model\Entity\Ambulancia;
 
 class AmbulanciaController extends CrudController {
     static $template = 'Layout/base.html.php';
@@ -30,11 +29,22 @@ class AmbulanciaController extends CrudController {
         $this->entity = new \Model\Entity\Ambulancia;
     }
 
-    function liberarAmbulanciaAction(){
+    function indexAction(){
+        $action = parent::indexAction();
+        $action['entities'] = $this->entity->getAllWithPerson();
+        $append = [
+            'rut'=>['name'=>'Rut paciente'],
+            'nombre'=>['name'=>'Nombre paciente'],
+            'apellido'=>['name'=>'Apellido paciente'],
+        ];
+        $action['fields'] += $append;
 
-      $id_ambulancia = $this->get('id');
-      $liberar_ambulancia_query = "update ambulancia set persona_id = null where id = $id_ambulancia";
-      (new Ambulancia)->customQuery($liberar_ambulancia_query);
+        return $action;
+    }
+
+    function releaseAction(){
+      $id = (int)$this->get('id');
+      $this->entity->release($id);
 
       $this->redirect("/backend/ambulancia?alert=liberada");
     }
