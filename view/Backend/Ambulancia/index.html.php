@@ -6,7 +6,7 @@
     <br>
     <a href="/backend/<?=$module?>/new" class="btn btn-info">Nueva <?=ucfirst($module)?></a>
     <br><br>
-    <table class="table data-table">
+    <table class="table data-table table-hover">
         <thead>
         <tr>
             <th>ID</th>

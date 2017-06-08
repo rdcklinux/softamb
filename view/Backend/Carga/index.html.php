@@ -4,7 +4,7 @@
      <br/>Run titular: <strong><?=$persona['rut']?></strong>
  </p>
 <a href="/backend/<?=$module?>/new" class="btn btn-success">Nueva <?=ucfirst($module)?></a>
-<table class="table data-table">
+<table class="table data-table table-hover">
     <thead>
     <tr>
         <?php foreach($fields as $field):?>
