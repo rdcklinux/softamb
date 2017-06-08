@@ -26,7 +26,7 @@ class AmbulanciaController extends CrudController {
     ];
 
     function __construct(){
-        if(!$_SESSION['user']['gestor']); $this->redirect('/backend/client/home');
+        if(!$_SESSION['user']['gestor']) $this->redirect('/backend/client/home');
         $this->entity = new \Model\Entity\Ambulancia;
     }
 
