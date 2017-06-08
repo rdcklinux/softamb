@@ -8,6 +8,7 @@
     <table class="table data-table table-hover">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Nombre</th>
             <?php foreach($fields as $field):?>
             <th><?=$field['name']?></th>
@@ -19,6 +20,7 @@
         <tbody>
             <?php foreach($entities as $entity):?>
             <tr>
+                <td><?=$entity['id']?></td>
                 <td><?=$entity['nombre']?></td>
                 <?php foreach($fields as $key=>$field):?>
                 <td><?=$entity[$key]?></td>

@@ -31,7 +31,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema softamb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `softamb` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `softamb` DEFAULT CHARACTER SET utf16 ;
 USE `softamb` ;
 
 --
@@ -175,23 +175,23 @@ CREATE TABLE `softamb`.`sintoma` (
 --
 
 INSERT INTO `sintoma` (`id`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`, `nombre`) VALUES
-(1, 'Dolor en la parte superior del vientre', '1- Poner Guatero caliente en la sona con dolor\r\n2- Tomar infuciones calientes\r\n\r\n3-ingerir 25 gotas de viadil forte\r\n\r\nConsulte con el médico si presenta: Dolor en la parte superior del vientre o el abdomen que no desaparece. ', 0, 1, 'Dolor Abdominar'),
-(2, 'Colicos e hinchazon', '1- Tomar infusiones tales como:Matico, Menta, Manzanilla.\r\n\r\n2- Ingerir 25 gotas de Viadil forte\r\n\r\nSi los dolores persiste luego de haber transcurrido 45 minutos, acuda a un centro medico.', 0, 1, 'Inflamacion Abdominar'),
+(1, 'Dolor en la parte superior del vientre', '1- Poner Guatero caliente en la zona con dolor\r\n2- Tomar infusiones calientes\r\n\r\n3-ingerir 25 gotas de viadil forte\r\n\r\nConsulte con el medico si presenta: Dolor en la parte superior del vientre o el abdomen que no desaparece. ', 0, 1, 'Dolor Abdominal'),
+(2, 'Colicos e hinchazon', '1- Tomar infusiones tales como:Matico, Menta, Manzanilla.\r\n\r\n2- Ingerir 25 gotas de Viadil forte\r\n\r\nSi los dolores persiste luego de haber transcurrido 45 minutos, acuda a un centro medico.', 0, 1, 'Inflamacion Abdominal'),
 (3, 'Presenta vomitos para 3 min', 'Acudir de inmediato a un centro medico ', 0, 1, 'Vomitos'),
-(4, 'Dolor de cabeza por estres', '1- ingerir analgésicos de venta libre, como ácido acetilsalicílico (aspirin), ibuprofeno o paracetamol\r\n2- Descansar la vista en una habitación oscura.\r\n3- Poner compresas fria sobre la sona con dolor\'', 0, 2, 'Dolor de cabeza'),
-(5, 'Contaste dolores de cabezas y mareos ', '1- Beba agua para evitar la deshidratación, especialmente si ha vomitado\r\n2- Descanse en una habitación tranquila y oscura\r\n3- Coloque compresa frío sobre la cabeza\r\n\r\n4- Tomar al analgesico tal como: aspirina, ibuprofeno, colmax\'', 0, 2, 'Mareos y dolor de cabeza'),
+(4, 'Dolor de cabeza por estres', '1- ingerir analgesicos de venta libre, como acido acetilsalicilico (aspirin), ibuprofeno o paracetamol\r\n2- Descansar la vista en una habitacion oscura.\r\n3- Poner compresas fria sobre la sona con dolor\'', 0, 2, 'Dolor de cabeza'),
+(5, 'Contaste dolores de cabezas y mareos ', '1- Beba agua para evitar la deshidratacion, especialmente si ha vomitado\r\n2- Descanse en una habitacion tranquila y oscura\r\n3- Coloque compresa frio sobre la cabeza\r\n\r\n4- Tomar al analgesico tal como: aspirina, ibuprofeno, colmax\'', 0, 2, 'Mareos y dolor de cabeza'),
 (6, 'Ha sufrido un golpe en su cabezas', 'Acudir de inmediato a un centro medico para una atencion oportuna.', 1, 2, 'Traumatizmo craneal'),
-(7, 'Sensación de tener algo extraño en el ojo', '1- Utilizar compresas de agua tibia o fría.\r\n\r\n2- Quitar maquillaje o lentes de contactos\r\n\r\nEs necesario acudir a un especialista ya que si la infección es bacteriana', 0, 3, 'Ojos enrojecidos'),
-(8, 'Visión borrosa por picor y dolor', '1 Aplicar gotas para el ardor ocular.\r\n\r\nSi los sintomas persisten despues de 45 minutos de haber aplicado las gotas,es necesario acudir a un especialista ya que puede ser una ulcera ocular.', 0, 3, 'Visión borrosa'),
-(9, 'No puedo mirar hacia el lado, constante dolor', '1 Lavar los ojos con agua tibia para quitar elementos extraños \r\n\r\nAcudir de urgencia a un centro medico en caso de Sandrago o inflamación.', 0, 3, 'Malestar al mover los ojos '),
-(10, 'Inmovilización temporal o permanente', '1. Cambio de postura. Si trabajas frente a una computadora los brazos deben estar apoyados sobre el escritorio hasta al nivel de los codos.\r\n Hacer ejercicios de estiramiento.\r\n3.- Si ya tienes la lesión la puedes tratar con rehabilitación.\r\n4- Acudir a un centro asistencial si el dolor perdura más de 5 dias.', 1, 4, 'Dolor Espalda Dorzal'),
-(11, 'sensación de hormigueo o ardor', '1- Aplicar compresa calientes\r\n2- Tomar antiinflamatorio \r\n\r\nSi el dolor persiste por más de 3 dias acudir de inmeditado a un centro asistencial ', 0, 4, 'Contractura'),
-(12, 'Entumecimiento, debilidad ', 'Acudir de inmediato a un centro medico', 0, 4, 'Dolor de espalda en los glúteos'),
-(13, 'Torpeza de la mano al agarrar objetos', '1- Usar una férula en la noche por algunas semanas. Si esto no ayuda, posiblemente sea necesario usarla también durante el día.\r\nEvitar dormir sobre las muñecas.\r\n2- Aplicar compresas frías o calientes en la zona afectada.\r\n\r\nSi el dolor persiste despues de 7 dias acudir a un centro medico. \'', 0, 5, 'Manos sin fuerza'),
-(14, 'Rigidez matutina, que dura por más de 1 hora', '1- ingerir un antinflamatorio\r\n2- Aplicar compresas calientes \r\n\r\nAcudir a un centro medico de persistir los dolores e inmobilidad mas de 3 horas', 0, 5, 'Articulaciones manos'),
+(7, 'Sensacion de tener arena en el ojo', '1- Utilizar compresas de agua tibia o fria.\r\n\r\n2- Quitar maquillaje o lentes de contactos\r\n\r\nEs necesario acudir a un especialista ya que si la infeccion es bacteriana', 0, 3, 'Ojos enrojecidos'),
+(8, 'Vision borrosa por picor y dolor', '1 Aplicar gotas para el ardor ocular.\r\n\r\nSi los sintomas persisten despues de 45 minutos de haber aplicado las gotas,es necesario acudir a un especialista ya que puede ser una ulcera ocular.', 0, 3, 'Vision borrosa'),
+(9, 'No puedo mirar hacia el lado, constante dolor', '1 Lavar los ojos con agua tibia para quitar elementos contaminantes \r\n\r\nAcudir de urgencia a un centro medico en caso de Sandrago o inflamacion.', 0, 3, 'Malestar al mover los ojos '),
+(10, 'Inmovilizacion temporal o permanente', '1. Cambio de postura. Si trabajas frente a una computadora los brazos deben estar apoyados sobre el escritorio hasta al nivel de los codos.\r\n Hacer ejercicios de estiramiento.\r\n3.- Si ya tienes la lesion la puedes tratar con rehabilitacion.\r\n4- Acudir a un centro asistencial si el dolor perdura mas de 5 dias.', 1, 4, 'Dolor Espalda Dorzal'),
+(11, 'sensacion de hormigueo o ardor', '1- Aplicar compresa calientes\r\n2- Tomar antiinflamatorio \r\n\r\nSi el dolor persiste por mas de 3 dias acudir de inmeditado a un centro asistencial ', 0, 4, 'Contractura'),
+(12, 'Entumecimiento, debilidad ', 'Acudir de inmediato a un centro medico', 0, 4, 'Dolor Lumbar'),
+(13, 'Torpeza de la mano al agarrar objetos', '1- Usar una ferula en la noche por algunas semanas. Si esto no ayuda, posiblemente sea necesario usarla tambien durante el dia.\r\nEvitar dormir sobre las muñecas.\r\n2- Aplicar compresas frias o calientes en la zona afectada.\r\n\r\nSi el dolor persiste despues de 7 dias acudir a un centro medico. \'', 0, 5, 'Manos sin fuerza'),
+(14, 'Rigidez matutina, que dura por mas de 1 hora', '1- ingerir un antinflamatorio\r\n2- Aplicar compresas calientes \r\n\r\nAcudir a un centro medico de persistir los dolores e inmobilidad mas de 3 horas', 0, 5, 'Dolor Articulaciones'),
 (15, 'Entumecimiento u hormigueo, fuertes dolores', 'Acudir de urgencia a un centro medico', 0, 5, 'Traumatismo muñeca'),
-(16, 'Inflamacion el area del medio del pie', '1- Compresión de la inflamacion (hinchazon) con un vendaje elástico\r\n2- Elevación del area lesionada\r\n\r\nSi el dolor persiste pasado 24 hrs, acuda un centro medico\'', 0, 6, 'Torcedura de pies'),
-(17, 'Inmobilidad pies completo', '1- Aplique hielo sobre el tendon de Aquiles por 15 a 20 minutos, de 2 a 3 veces al día. Utilice una compresa de hielo envuelta en un trapo. NO aplique hielo directamente sobre la piel.\r\n\r\n2- Tome analgésicos, como acido \r\nacetilsalicílico (aspirin), ibuprofeno (Advil o Motrin) o naproxeno (Aleve, Naprosyn) para reducir la inflamacion y el dolor.\r\n\r\nSi el dolor persiste mas de 24 hrs acudir a un centro medico\r\n', 1, 6, 'Dolor en tobillo'),
+(16, 'Inflamacion el area del medio del pie', '1- Compresion de la inflamacion (hinchazon) con un vendaje elastico\r\n2- Elevacion del area lesionada\r\n\r\nSi el dolor persiste pasado 24 hrs, acuda un centro medico\'', 0, 6, 'Torcedura de pies'),
+(17, 'Inmobilidad pies completo', '1- Aplique hielo sobre el tendon de Aquiles por 15 a 20 minutos, de 2 a 3 veces al dia. Utilice una compresa de hielo envuelta en un trapo. NO aplique hielo directamente sobre la piel.\r\n\r\n2- Tome analgesicos, como acido \r\nacetilsalicilico (aspirin), ibuprofeno (Advil o Motrin) o naproxeno (Aleve, Naprosyn) para reducir la inflamacion y el dolor.\r\n\r\nSi el dolor persiste mas de 24 hrs acudir a un centro medico\r\n', 1, 6, 'Dolor en tobillo'),
 (20, 'inmobilidad, dolor ', 'Asistir a un centro medico de urgencia', 1, 6, 'Fractura tobillo');
 
 --
