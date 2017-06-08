@@ -4,7 +4,7 @@ namespace Controller\Backend;
 use Library\Controller;
 use Model\Entity\Category;
 use Model\Entity\Sintoma;
-use Model\Entity\User;
+use Model\Entity\Persona;
 use Model\Entity\Carga;
 
 
@@ -27,9 +27,8 @@ class GestorController extends Controller {
       $cargas = [];
 
       if (isSet($_SESSION['selectedCliente'])) {
-        $id_cliente = $_SESSION['selectedCliente']["id"];
-        $query_cargas = "SELECT * FROM carga join persona on persona.id = carga_id WHERE persona_id = $id_cliente";
-        $cargas = (new Carga)->customQuery($query_cargas)-> fetchAll();
+        $id_cliente = (int)$_SESSION['selectedCliente']["id"];
+        $cargas = (new Persona)->getCargas($id_cliente);
       }
 
       return ["categories" => $categories, "sintomas" => $sintomas, "cargas"=> $cargas, "title"=>"Listado Categorias"];

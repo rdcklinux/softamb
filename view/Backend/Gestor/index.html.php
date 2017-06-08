@@ -33,7 +33,7 @@
                     </li>
                     <li><p>FECHA NACIMIENTO: <?= $_SESSION['selectedCliente']['fecha_nacimiento'] ?> </p>
                     </li>
-                    <li><p>TELEFONO: <?= $_SESSION['selectedCliente']['contacto'] ?></p>
+                    <li><p>TELEFONO: <?= $_SESSION['selectedCliente']['telefono'] ?></p>
                     </li>
                     <li><p>DIRECCION: <?= $_SESSION['selectedCliente']['direccion'] ?></p>
                     </li>
@@ -60,7 +60,7 @@
                   </li>
                   <li><p>RUT: <?= $carga["rut"] ?></p>
                   </li>
-                  <li><p>EDAD: <?= $carga["telefono"] ?></p>
+                  <li><p>EDAD: <?=(new \DateTime)->diff(new \DateTime($carga["fecha_nacimiento"]),true)->y ?></p>
                   </li>
                 </ul>
             </div>
@@ -229,7 +229,7 @@
     <?php if( $_GET['alert'] == "rut_no_encontrado" ): ?>
       alert("No se han encontrado clientes asociados al rut ingresado")
     <?php elseif($_GET['alert'] == "cliente_seleccionado"): ?>
-      alert("Cliente encontrado")
+      console.log("Cliente encontrado")
     <?php elseif($_GET['alert'] == "sin_ambulancias_libres"): ?>
       alert("No quedan ambulancias libres para asignar")
     <?php elseif($_GET['alert'] == "ambulancia_ya_asignada"): ?>

@@ -174,7 +174,7 @@ CREATE TABLE `softamb`.`sintoma` (
 -- Dumping data for table `sintoma`
 --
 
-INSERT INTO `sintoma` (`id`, `descripcion_sintomas`, `primeros_auxilios`, `ambulancia`, `category_id`, `nombre`) VALUES
+INSERT INTO `sintoma` (`id`, `descripcion`, `primeros_auxilios`, `ambulancia`, `category_id`, `nombre`) VALUES
 (1, 'Dolor en la parte superior del vientre', '1- Poner Guatero caliente en la zona con dolor\r\n2- Tomar infusiones calientes\r\n\r\n3-ingerir 25 gotas de viadil forte\r\n\r\nConsulte con el medico si presenta: Dolor en la parte superior del vientre o el abdomen que no desaparece. ', 0, 1, 'Dolor Abdominal'),
 (2, 'Colicos e hinchazon', '1- Tomar infusiones tales como:Matico, Menta, Manzanilla.\r\n\r\n2- Ingerir 25 gotas de Viadil forte\r\n\r\nSi los dolores persiste luego de haber transcurrido 45 minutos, acuda a un centro medico.', 0, 1, 'Inflamacion Abdominal'),
 (3, 'Presenta vomitos para 3 min', 'Acudir de inmediato a un centro medico ', 0, 1, 'Vomitos'),
