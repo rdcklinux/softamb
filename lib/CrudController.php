@@ -10,6 +10,7 @@ class CrudController extends Controller {
         return [
             'entities'=>$this->entity->getAll(),
             'vtitle'=>$this->vtitles['index'],
+            'title'=>$this->vtitles['index'],
             'module'=>$this->module,
             'fields'=>$this->fields,
         ];
@@ -22,6 +23,7 @@ class CrudController extends Controller {
         return [
             'entity'=>$entity,
             'vtitle'=>$this->vtitles['edit'],
+            'title'=>$this->vtitles['edit'],
             'module'=>$this->module,
             'fields'=>$this->fields,
         ];
@@ -31,6 +33,7 @@ class CrudController extends Controller {
     function newAction(){
         return [
             'vtitle'=>$this->vtitles['new'],
+            'title'=>$this->vtitles['new'],
             'module'=>$this->module,
             'fields'=>$this->fields,
         ];
