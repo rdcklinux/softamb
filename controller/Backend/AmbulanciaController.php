@@ -2,6 +2,7 @@
 namespace Controller\Backend;
 
 use Library\CrudController;
+use Model\Entity\Ambulancia;
 
 class AmbulanciaController extends CrudController {
     static $template = 'Layout/base.html.php';
@@ -27,5 +28,14 @@ class AmbulanciaController extends CrudController {
 
     function __construct(){
         $this->entity = new \Model\Entity\Ambulancia;
+    }
+
+    function liberarAmbulanciaAction(){
+
+      $id_ambulancia = $this->get('id');
+      $liberar_ambulancia_query = "update ambulancia set persona_id = null where id = $id_ambulancia";
+      (new Ambulancia)->customQuery($liberar_ambulancia_query);
+
+      $this->redirect("/backend/ambulancia?alert=liberada");
     }
 }
