@@ -35,6 +35,7 @@ class CargaController extends CrudController {
     ];
 
     function __construct(){
+        if(!$_SESSION['user']['gestor']); $this->redirect('/backend/welcome');
         if(empty($_SESSION['cp'])){
             $_SESSION['cp'] = (int)$_GET['persona'];
         }

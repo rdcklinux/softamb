@@ -30,6 +30,7 @@ class SintomaController extends CrudController {
     ];
 
     function __construct(){
+        if(!$_SESSION['user']['gestor']); $this->redirect('/backend/welcome');
         $this->entity = new \Model\Entity\Sintoma;
     }
 

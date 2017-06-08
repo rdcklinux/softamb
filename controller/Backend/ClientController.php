@@ -11,7 +11,7 @@ use Model\Entity\Carga;
 
 class ClientController extends Controller {
     static $template = 'Layout/base.html.php';
-
+    
     function indexAction(){
         $person = $this->getPerson();
         return ['persona'=>$person];

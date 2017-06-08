@@ -46,6 +46,7 @@ class PersonaController extends CrudController {
     }
 
     function indexAction(){
+     if(!$_SESSION['user']['gestor']); $this->redirect('/backend/welcome');
      unset($this->fields['password'], $this->fields['r_password'], $this->fields['direccion']);
       return parent::indexAction();
     }
@@ -68,6 +69,7 @@ class PersonaController extends CrudController {
     }
 
     function createAction(){
+        if(!$_SESSION['user']['gestor']); $this->redirect('/backend/welcome');
         if($_POST['entity']['password'] == $_POST['entity']['r_password'] && !empty($_POST['entity']['password'])){
             $_POST['entity']['password'] = sha1($_POST['entity']['password']);
             unset($_POST['entity']['r_password']);
@@ -90,27 +92,27 @@ class PersonaController extends CrudController {
         }
         $_SESSION['selectedCliente']= $cliente;
         echo json_encode(['cliente'=> $cliente, 'alert_param'=>'?alert=cliente_seleccionado', 'success'=> true]); exit;
-        
+
     }
 
     function asignarAmbulanciaAction(){
       $user_id = $this->post('user_id');
       $query_ambulancias_libres = "select * from ambulancia where persona_id is null limit 1;";
-      $ambulancia = (new Ambulancia)->customQuery($query_ambulancias_libres)->fetch(); 
+      $ambulancia = (new Ambulancia)->customQuery($query_ambulancias_libres)->fetch();
       $ambulancia_id = $ambulancia['id'];
       if ($ambulancia == false) {
         echo json_encode(['success'=> false, 'alert_param'=>'?alert=sin_ambulancias_libres']); exit;
       }
       $query_usario_con_ambulancia = "select * from ambulancia where persona_id = $user_id limit 1;";
-      $ya_tiene_ambulancia = (new Ambulancia)->customQuery($query_usario_con_ambulancia)->fetch(); 
-      
+      $ya_tiene_ambulancia = (new Ambulancia)->customQuery($query_usario_con_ambulancia)->fetch();
+
       if ($ya_tiene_ambulancia != false) {
         echo json_encode(['success'=> false, 'alert_param'=>'?alert=ambulancia_ya_asignada']); exit;
-      }     
-      
+      }
+
       $query_asignar_ambulancia = "update ambulancia set persona_id = $user_id where id = $ambulancia_id;";
-      $ambulancia = (new Ambulancia)->customQuery($query_asignar_ambulancia); 
+      $ambulancia = (new Ambulancia)->customQuery($query_asignar_ambulancia);
       echo json_encode(['success'=> true, 'alert_param'=>'?alert=ambulancia_asignada', "ambulancia_id"=> $ambulancia_id]); exit;
-    
-    }    
+
+    }
 }
