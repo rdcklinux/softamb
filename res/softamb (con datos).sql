@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2017 at 02:23 AM
+-- Generation Time: Jun 08, 2017 at 05:47 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -71,19 +71,19 @@ INSERT INTO `carga` (`persona_id`, `carga_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Table structure for table `categoria`
 --
 
-CREATE TABLE `category` (
+CREATE TABLE `categoria` (
   `id` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `category`
+-- Dumping data for table `categoria`
 --
 
-INSERT INTO `category` (`id`, `nombre`) VALUES
+INSERT INTO `categoria` (`id`, `nombre`) VALUES
 (1, 'Estomago'),
 (2, 'Cabeza'),
 (3, 'Ojos'),
@@ -178,9 +178,9 @@ ALTER TABLE `carga`
   ADD KEY `fk_carga_idx` (`carga_id`);
 
 --
--- Indexes for table `category`
+-- Indexes for table `categoria`
 --
-ALTER TABLE `category`
+ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -206,9 +206,9 @@ ALTER TABLE `sintoma`
 ALTER TABLE `ambulancia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT for table `categoria`
 --
-ALTER TABLE `category`
+ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `persona`
@@ -241,7 +241,7 @@ ALTER TABLE `carga`
 -- Constraints for table `sintoma`
 --
 ALTER TABLE `sintoma`
-  ADD CONSTRAINT `fk_sintoma_category1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_sintoma_category1` FOREIGN KEY (`category_id`) REFERENCES `categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
