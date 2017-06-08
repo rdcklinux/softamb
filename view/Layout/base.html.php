@@ -23,7 +23,7 @@
 
               <a class="navbar-brand pull-right	" href="/">SOFTAMB</a>
               <a href="/">
-              	<img style="height:50px" src="/images/logo3.png">
+              	<img style="height:50px" src="/images/logo4.png">
               </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,7 +47,8 @@
                 	<?php endif ?>
                 	<li><a href="/frontend/auth/logout">Cerrar Sesion</a></li>
                 <?php else: ?>
-                    <li><a href="/frontend/signin">Inicio</a></li>
+                    <li><a href="/frontend/auth/signin">Inicio</a></li>
+                    <li><a href="/frontend/default/search">Buscador Sintomas</a></li>
         	    <?php endif; ?>
               </ul>
             </div><!-- /.navbar-collapse -->
@@ -61,6 +62,7 @@
 
         <div class="container">
           <?php @include($this->view) ?>
+          <br><br><br>
         </div>
     </body>
 </html>

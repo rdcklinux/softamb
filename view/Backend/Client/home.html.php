@@ -4,20 +4,6 @@
 <div class="container">
   <div class="col-md-4">
 
-     <!-- Blog Search Well -->
-    <div class="well">
-        <h4>RUT PACIENTE</h4>
-        <div class="input-group">
-            <input id="rut_search" type="text" class="form-control">
-            <span class="input-group-btn">
-                <button id="trigger_rut_search" class="btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-search"></span>
-            </button>
-            </span>
-        </div>
-        <!-- /.input-group -->
-    </div>
-
     <!-- Blog Categories Well -->
     <div class="well">
 
@@ -25,22 +11,22 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="list-unstyled">
-                    <li><p>NOMBRE: <?= $_SESSION['selectedCliente']['nombre'] ?></p>
+                    <li><p>NOMBRE: <?= $_SESSION['user']['nombre'] ?></p>
                     </li>
-                    <li><p>APELLIDO: <?= $_SESSION['selectedCliente']['apellido'] ?></p>
+                    <li><p>APELLIDO: <?= $_SESSION['user']['apellido'] ?></p>
                     </li>
-                    <li><p>RUT: <?= $_SESSION['selectedCliente']['rut'] ?></p>
+                    <li><p>RUT: <?= $_SESSION['user']['rut'] ?></p>
                     </li>
-                    <li><p>FECHA NACIMIENTO: <?= $_SESSION['selectedCliente']['fecha_nacimiento'] ?> </p>
+                    <li><p>FECHA NACIMIENTO: <?= $_SESSION['user']['fecha_nacimiento'] ?> </p>
                     </li>
-                    <li><p>TELEFONO: <?= $_SESSION['selectedCliente']['contacto'] ?></p>
+                    <li><p>TELEFONO: <?= $_SESSION['user']['contacto'] ?></p>
                     </li>
-                    <li><p>DIRECCION: <?= $_SESSION['selectedCliente']['direccion'] ?></p>
+                    <li><p>DIRECCION: <?= $_SESSION['user']['direccion'] ?></p>
                     </li>
                 </ul>
             </div>
           <div class="col-md-12">
-            <a href="/backend/persona/edit?id=<?= $_SESSION['selectedCliente']['id'] ?>" class="btn btn-success btn-sm btn-block">Editar</a>
+            <a href="/backend/persona/edit?id=<?= $_SESSION['user']['id'] ?>" class="btn btn-success btn-sm btn-block">Editar</a>
          </div>
 
         </div>
@@ -160,12 +146,6 @@
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 
-                    <?php if($row["ambulancia"]): ?>
-                      <button  type="button" data-user-id="<?=$row['id']?>" data-cliente-seteado="<?= isSet($_SESSION['selectedCliente']) ?>" class="btn btn-success asignar_ambulancia">Assignar Ambulancia</button>
-                    <?php else: ?>
-                      <button  type="button" disabled class="btn btn-danger">No Requiere Ambulancia</button>
-                    <?php endif; ?>
-
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
@@ -227,59 +207,5 @@
       tabla_sintomas.search("").draw()
     })
 
-
-    // Mensajes de alerta
-    <?php if( $_GET['alert'] == "rut_no_encontrado" ): ?>
-      alert("No se han encontrado clientes asociados al rut ingresado")
-    <?php elseif($_GET['alert'] == "cliente_seleccionado"): ?>
-      alert("Cliente encontrado")
-    <?php elseif($_GET['alert'] == "sin_ambulancias_libres"): ?>
-      alert("No quedan ambulancias libres para asignar")
-    <?php elseif($_GET['alert'] == "ambulancia_ya_asignada"): ?>
-      alert("Una ambulancia ya fue asignada a este cliente")
-    <?php elseif($_GET['alert'] == "ambulancia_asignada"): ?>
-      alert("Ambulancia asignada exitosamente")
-    <?php endif ?>
-
-
-    $(".asignar_ambulancia").on("click", function(e){
-      var btn = $(this)
-      var cliente_seteado = btn.data("cliente-seteado") == "1"
-      var user_id = "<?= $_SESSION['selectedCliente']['id'] ?>"
-
-      if (cliente_seteado == false) {
-        alert("debe seleccionar un cliente antes de asignarle una ambulancia")
-        return
-      }
-
-      $.ajax({
-        url: "/backend/persona/asignarAmbulancia",
-        type: "POST",
-        dataType:'json',
-        data: { user_id: user_id},
-        success: function(response){
-          console.log(response)
-          window.location = response['alert_param'];
-        }
-      });
-
-    })
-
-
-    $("#trigger_rut_search").on("click", function(){
-      var rut =  $("#rut_search").val()
-
-      $.ajax({
-        url: "/backend/persona/setSelectedClient",
-        type: "POST",
-        dataType:'json',
-        data: { rut: rut},
-        success: function(response){
-          console.log(response)
-          window.location = response['alert_param'];
-        }
-      });
-
-    })
   })
 </script>

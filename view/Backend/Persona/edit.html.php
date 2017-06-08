@@ -10,7 +10,7 @@
         <td><?=$field['name']?></td>
         <td>
         <?php if($field['type'] == 'checkbox'):?>
-            <input value="1" type="<?=$field['type']?>" class="form-control" name="entity[<?=$key?>]" <?=$entity[$key]?'checked':''?>>
+<!--             <input value="1" type="<?=$field['type']?>" class="form-control" name="entity[<?=$key?>]" <?=$entity[$key]?'checked':''?>> -->
         <?php else: ?>
             <input value="<?=$entity[$key]?>" type="<?=$field['type']?>" class="form-control" name="entity[<?=$key?>]">
         <?php endif ?>
@@ -18,6 +18,6 @@
     </tr>
     <?php endforeach ?>
 </table>
-<a href="/backend/<?=$module?>" class="btn btn-default">Volver</a>
+<a href="/backend/welcome" class="btn btn-default">Volver</a>
 <button type="submit" class="btn btn-success">Guardar</button>
 </form>
