@@ -13,7 +13,7 @@ class PersonaController extends CrudController {
         'edit' => '/backend/Persona/edit',
     ];
     protected $vtitles = [
-        'index'=>'Listado de Persona',
+        'index'=>'Listado de Personas',
         'edit'=>'Editar Persona',
         'new'=>'Nueva Persona',
     ];

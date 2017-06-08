@@ -1,4 +1,4 @@
- <h1><?=$vtitle?> para</h1>
+ <h1><?=$vtitle?></h1>
  <p>
      Nombre Titular: <strong><?=$persona['nombre']?> <?=$persona['apellido']?></strong>
      <br/>Run titular: <strong><?=$persona['rut']?></strong>
