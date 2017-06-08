@@ -48,27 +48,31 @@
     </div>
 
 
+<?php foreach ($cargas as $carga): ?>
     <div class="well">
         <h4>CARGAS ADICIONALES</h4>
         <div class="row">
             <div class="col-md-12">
                 <ul class="list-unstyled">
-                  <li><p>NOMBRE</p>
+                  <li><p>NOMBRE: <?= $carga["nombre"] ?></p>
                   </li>
-                  <li><p>APELLIDO</p>
+                  <li><p>APELLIDO: <?= $carga["apellido"] ?></p>
                   </li>
-                  <li><p>EDAD</p>
+                  <li><p>RUT: <?= $carga["rut"] ?></p>
                   </li>
-                  <li><p>RUT</p>
-                  </li>
+                  <li><p>EDAD: <?= $carga["telefono"] ?></p>
+                  </li>                  
                 </ul>
             </div>
           <div class="col-md-12">
-            <a href="/backend/persona/editCarga?id=" class="btn btn-success btn-sm btn-block">Editar</a>
+            <a href="/backend/persona/edit?id=<?= $carga['carga_id'] ?>" class="btn btn-success btn-sm btn-block">Editar</a>
          </div>
         </div>
         <!-- /.row -->
     </div>
+
+<?php endforeach ?>
+
 
   </div>
 
@@ -127,7 +131,7 @@
 
           <tr>
             <td><?= $row['id']?></td>
-            <td><?=$row['descripcion']?></td>
+            <td><?=$row['nombre']?></td>
             <td><?=$row['category_id']?></td>
             <td><a class="btn btn-block btn-xs btn-<?= $row['ambulancia'] ? 'success' : 'default' ?>"><?= $row["ambulancia"] ? "Si" : "No" ?></a></td>
 
@@ -145,6 +149,10 @@
                   <div class="modal-body">
                     <h4>Sintoma: <?=$row['nombre']?></h4>
                     <br>
+                    <p>Descripcion: <?=$row['descripcion_sintomas']?></p>
+                    <p></p>
+                    <hr>
+                    <h4>Primeros Auxilios:</h4>
                     <p><?=$row['primeros_auxilios']?></p>
 
                   </div>
@@ -171,14 +179,6 @@
 
 </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
-            </div>
-        </div>
-    </footer>
 
 
 

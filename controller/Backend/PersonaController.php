@@ -82,7 +82,7 @@ class PersonaController extends CrudController {
         // Asigna un cliente 'seleccionado' a una variable de sesion, para que cuando queramos asignar una ambulancia ya sepamos a quien le pertenecera
         $rut = $this->post('rut');
         // ############### MEJORAR SEGURIDAD EVITANDO INJECCION SQL!!! #######
-        $query = "select * from persona where rut = '$rut' and cliente = 1;";
+        $query = "select * from persona where rut = '$rut' and cliente = 1 and activo = 1;";
         $cliente = (new User)->customQuery($query)-> fetch();
         if ($cliente == false) {
           unset($_SESSION['selectedCliente']);
